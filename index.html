@@ -1,117 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hey Gringa - Trilhas</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      display: flex;
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
-    .sidebar {
-      width: 200px;
-      background-color: #4a4a8a;
-      color: white;
-      height: 100vh;
-      padding: 20px;
-    }
-    .sidebar h2 {
-      margin-top: 0;
-    }
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-    .sidebar li {
-      margin: 10px 0;
-      cursor: pointer;
-    }
-    .main-content {
-      flex: 1;
-      padding: 20px;
-    }
-    .trilhas {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .trilha-btn {
-      padding: 10px;
-      background-color: #ddd;
-      border: none;
-      cursor: pointer;
-    }
-    .trilha-btn.active {
-      background-color: #4a4a8a;
-      color: white;
-    }
-    .cursos {
-      display: flex;
-      gap: 10px;
-    }
-    .curso-card {
-      background-color: #f2f2f2;
-      padding: 20px;
-      border-radius: 8px;
-      flex: 1;
-      cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hey Gringa - Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="sidebar">
-    <h2>Hey Gringa</h2>
-    <ul>
-      <li class="active">Minhas Trilhas</li>
-      <li>Relatórios</li>
-      <li>Plano de Ação</li>
-      <li>Administração</li>
-    </ul>
-  </div>
-  <div class="main-content">
-    <h1>Minhas Trilhas</h1>
-    <div class="trilhas" id="trilhas"></div>
-    <div class="cursos" id="cursos"></div>
-  </div>
-
-  <script>
-    const trilhas = [
-      { nome: "Didática Moderna", cursos: ["Básico", "Intermediário", "Avançado"] },
-      { nome: "Planejamento de Aula", cursos: ["Básico", "Intermediário", "Avançado"] },
-      { nome: "Tecnologias Educacionais", cursos: ["Básico", "Intermediário", "Avançado"] },
-      { nome: "Inclusão e Diversidade", cursos: ["Básico", "Intermediário", "Avançado"] }
-    ];
-
-    const trilhasContainer = document.getElementById('trilhas');
-    const cursosContainer = document.getElementById('cursos');
-
-    function renderTrilhas() {
-      trilhas.forEach((trilha, index) => {
-        const btn = document.createElement('button');
-        btn.textContent = trilha.nome;
-        btn.className = 'trilha-btn';
-        btn.onclick = () => renderCursos(index, btn);
-        trilhasContainer.appendChild(btn);
-      });
-    }
-
-    function renderCursos(index, btn) {
-      document.querySelectorAll('.trilha-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      cursosContainer.innerHTML = '';
-
-      trilhas[index].cursos.forEach(curso => {
-        const card = document.createElement('div');
-        card.className = 'curso-card';
-        card.textContent = curso;
-        cursosContainer.appendChild(card);
-      });
-    }
-
-    renderTrilhas();
-  </script>
+    <div class="sidebar">
+        <h2>Hey Gringa</h2>
+        <ul>
+            <li class="active">Minhas Trilhas</li>
+            <li>Relatórios</li>
+            <li>Plano de Ação</li>
+            <li>Administração</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Minhas Trilhas</h1>
+        </div>
+        <div class="course-menu">
+            <button class="tab">Básico</button>
+            <button class="tab">Intermediário</button>
+            <button class="tab">Avançado</button>
+        </div>
+        <div class="content">
+            <div class="course-card">
+                <h3>Didática Moderna</h3>
+                <p>Status: Não iniciado</p>
+                <button>Acessar</button>
+            </div>
+            <div class="course-card">
+                <h3>Gestão de Sala de Aula</h3>
+                <p>Status: Em progresso</p>
+                <button>Acessar</button>
+            </div>
+            <div class="course-card">
+                <h3>Planejamento Estratégico</h3>
+                <p>Status: Concluído</p>
+                <button>Acessar</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+

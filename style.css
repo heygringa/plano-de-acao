@@ -1,60 +1,92 @@
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-}
-
-.sidebar {
-    width: 200px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .sidebar {
+    width: 220px;
     background-color: #333;
     color: #fff;
     height: 100vh;
     padding: 20px;
-    position: fixed;
-}
-
-.sidebar ul {
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 30px;
+  }
+  
+  .sidebar ul {
     list-style: none;
     padding: 0;
-}
-
-.sidebar li {
-    margin-bottom: 15px;
-    cursor: pointer;
-}
-
-.main-content {
-    margin-left: 220px;
-    padding: 20px;
-}
-
-.trilhas {
-    display: flex;
-    gap: 10px;
+  }
+  
+  .sidebar ul li {
     margin-bottom: 20px;
-}
-
-.trilha-btn {
-    padding: 10px;
-    background-color: #ddd;
-    border: none;
     cursor: pointer;
-}
-
-.trilha-btn.active {
-    background-color: #4a4a8a;
-    color: white;
-}
-
-.cursos {
-    display: flex;
-    gap: 10px;
-}
-
-.curso-card {
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 8px;
+    color: #ccc;
+  }
+  
+  .sidebar ul li.active,
+  .sidebar ul li:hover {
+    color: #ffce00;
+    font-weight: bold;
+  }
+  
+  .main-content {
     flex: 1;
-}
+    padding: 40px;
+  }
+  
+  .topbar h1 {
+    margin-top: 0;
+  }
+  
+  .course-menu {
+    margin: 30px 0;
+  }
+  
+  .tab {
+    background-color: #eee;
+    border: none;
+    padding: 12px 24px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .tab:hover {
+    background-color: #ddd;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .course-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .course-card h3 {
+    margin-top: 0;
+  }
+  
+  .course-card p {
+    margin: 10px 0;
+  }
+  
+  .course-card button {
+    background-color: #ffce00;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
