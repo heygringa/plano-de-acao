@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano de Ação - Diagnóstico</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      font-weight: bold;
+      margin-top: 1rem;
+      display: block;
+    }
+    select, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1.5rem;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Diagnóstico</h1>
+
+    <form id="diagnostico-form">
+      <label for="p1">1. Meus alunos participam ativamente das aulas.</label>
+      <select name="p1" required>
+        <option value="">Selecione</option>
+        <option value="1">1️⃣ - Nunca</option>
+        <option value="2">2️⃣ - Raramente</option>
+        <option value="3">3️⃣ - Às vezes</option>
+        <option value="4">4️⃣ - Frequentemente</option>
+        <option value="5">5️⃣ - Sempre</option>
+      </select>
+
+      <label for="p2">2. Faço acompanhamento do progresso dos alunos.</label>
+      <select name="p2" required>
+        <option value="">Selecione</option>
+        <option value="1">1️⃣ - Nunca</option>
+        <option value="2">2️⃣ - Raramente</option>
+        <option value="3">3️⃣ - Às vezes</option>
+        <option value="4">4️⃣ - Frequentemente</option>
+        <option value="5">5️⃣ - Sempre</option>
+      </select>
+
+      <label for="p3">3. Consigo identificar os pontos fortes e fracos dos alunos.</label>
+      <select name="p3" required>
+        <option value="">Selecione</option>
+        <option value="1">1️⃣ - Nunca</option>
+        <option value="2">2️⃣ - Raramente</option>
+        <option value="3">3️⃣ - Às vezes</option>
+        <option value="4">4️⃣ - Frequentemente</option>
+        <option value="5">5️⃣ - Sempre</option>
+      </select>
+
+      <label for="p4">4. Uso estratégias diferentes para atender os alunos.</label>
+      <select name="p4" required>
+        <option value="">Selecione</option>
+        <option value="1">1️⃣ - Nunca</option>
+        <option value="2">2️⃣ - Raramente</option>
+        <option value="3">3️⃣ - Às vezes</option>
+        <option value="4">4️⃣ - Frequentemente</option>
+        <option value="5">5️⃣ - Sempre</option>
+      </select>
+
+      <label for="p5">5. Me sinto seguro para lidar com diferentes situações em sala de aula.</label>
+      <select name="p5" required>
+        <option value="">Selecione</option>
+        <option value="1">1️⃣ - Nunca</option>
+        <option value="2">2️⃣ - Raramente</option>
+        <option value="3">3️⃣ - Às vezes</option>
+        <option value="4">4️⃣ - Frequentemente</option>
+        <option value="5">5️⃣ - Sempre</option>
+      </select>
+
+      <button type="submit">Salvar Diagnóstico</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("diagnostico-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      alert("Diagnóstico salvo com sucesso! (Em breve enviaremos para o banco de dados)");
+    });
+  </script>
+</body>
+</html>
