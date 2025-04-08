@@ -1,83 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hey Gringa - Dashboard</title>
+  <title>Hey Gringa - Plano de Ação</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <div class="sidebar">
-    <h2>Hey Gringa</h2>
-    <ul>
-      <li class="active">Minhas Trilhas</li>
-      <li>Relatórios</li>
-      <li>Plano de Ação</li>
-      <li>Administração</li>
-    </ul>
-  </div>
+  <header>
+    <h1>Hey Gringa - Plano de Ação</h1>
+  </header>
 
-  <div class="main-content">
-    <div class="topbar">
-      <h1>Minhas Trilhas</h1>
-    </div>
+  <main>
+    <section id="trilhas">
+      <h2>Minhas Trilhas</h2>
+      <div class="cards-trilhas">
+        <div class="card" onclick="mostrarNiveis('gestao')">Gestão de Sala de Aula</div>
+        <div class="card">Habilidades Pedagógicas</div>
+        <div class="card">Habilidades Culturais e Interculturais</div>
+      </div>
+    </section>
 
-    <div class="course-menu">
-      <button class="tab" onclick="showActionPlan('basico')">Básico</button>
-      <button class="tab" onclick="showActionPlan('intermediario')">Intermediário</button>
-      <button class="tab" onclick="showActionPlan('avancado')">Avançado</button>
-    </div>
+    <section id="niveis" style="display: none">
+      <h2>Escolha o Nível</h2>
+      <div class="botoes-niveis">
+        <button onclick="mostrarPlanoAcao('basico')">Básico</button>
+        <button disabled>Intermediário</button>
+        <button disabled>Avançado</button>
+      </div>
+    </section>
 
-    <div class="content" id="action-plan-container">
-      <p>Selecione um nível para visualizar o Plano de Ação.</p>
-    </div>
-  </div>
+    <section id="planoAcao" style="display: none">
+      <h2>Diagnóstico</h2>
+      <h3>Reflexão sobre a prática</h3>
+      <p>Leia atentamente cada afirmativa e avalie sua prática na sala de aula. Reflita sobre os pontos abaixo e faça sua auto-avaliação. Para cada item, assinale uma nota de 1 a 5, sendo:<br>1️⃣ - Nunca | 2️⃣ - Raramente | 3️⃣ - Às vezes | 4️⃣ - Frequentemente | 5️⃣ - Sempre</p>
+
+      <div class="bloco-diagnostico">
+        <h4>1. Estabelecendo regras e rotinas</h4>
+        <label><input type="checkbox" /> Eu comunico expectativas de forma clara, consistente e adaptada às necessidades da minha turma...</label>
+        <label><input type="checkbox" /> Eu utilizo uma linguagem positiva e objetiva para estabelecer regras e rotinas...</label>
+        <label><input type="checkbox" /> Eu aplico estratégias para manter a atenção dos alunos...</label>
+        <label><input type="checkbox" /> Eu monitoro e dou feedback regular sobre o comportamento...</label>
+        <label><input type="checkbox" /> Eu reviso e ajusto regras e rotinas periodicamente...</label>
+      </div>
+
+      <div class="bloco-diagnostico">
+        <h4>2. Engajamento</h4>
+        <label><input type="checkbox" /> Implemento estratégias interativas, como jogos e dinâmicas...</label>
+        <label><input type="checkbox" /> Crio um ambiente acolhedor que incentiva a participação ativa...</label>
+        <label><input type="checkbox" /> Adapto minhas aulas para conectar o aprendizado de inglês aos interesses dos alunos...</label>
+        <label><input type="checkbox" /> Normalizo os erros como parte do processo de aprendizado...</label>
+        <label><input type="checkbox" /> Estimulo a interação entre os alunos por meio de atividades colaborativas...</label>
+      </div>
+
+      <div class="bloco-diagnostico">
+        <h4>3. Resolução de conflitos iniciais</h4>
+        <label><input type="checkbox" /> Eu identifico e compreendo os principais fatores que podem gerar conflitos...</label>
+        <label><input type="checkbox" /> Eu utilizo a comunicação assertiva e a mediação de conflitos...</label>
+        <label><input type="checkbox" /> Eu aplico técnicas como o uso de sinais não verbais...</label>
+        <label><input type="checkbox" /> Eu adapto meu planejamento de aula para atender às necessidades individuais...</label>
+        <label><input type="checkbox" /> Eu reflito sobre o impacto da gestão de comportamentos na minha motivação...</label>
+      </div>
+
+      <p>Agora que concluímos a reflexão, é hora de avançar para o próximo passo: transformar essa análise em ação. Verifique no PLANO DE AÇÃO os itens que você avaliou entre 1 e 3...</p>
+
+      <h2>Plano de Ação</h2>
+      <table>
+        <thead>
+          <tr><th>Ponto</th><th>Problema</th><th>Estratégia para Melhoria</th><th>Prazo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" placeholder="Ex: Clareza nas regras" /></td>
+            <td>
+              <select>
+                <option>Os alunos não compreendem claramente as expectativas.</option>
+                <option>Falta de constância na aplicação das rotinas.</option>
+                <option>Ambiente desorganizado e sem regras definidas.</option>
+                <option>Outro (descreva abaixo)</option>
+              </select>
+              <input type="text" placeholder="Descreva seu problema" />
+            </td>
+            <td><textarea placeholder="Sugestões aparecerão aqui ou insira sua estratégia..."></textarea></td>
+            <td><input type="date" /></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Checklist de Avaliação</h2>
+      <p>Responda SIM (S), PARCIALMENTE (P) ou NÃO (N):</p>
+      <table>
+        <thead>
+          <tr><th>Solução</th><th>Resultado</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Estabeleci regras claras e consistentes.</td>
+            <td>
+              <select>
+                <option>S</option>
+                <option>P</option>
+                <option>N</option>
+              </select>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Agora que chegamos ao final da avaliação, verifique os pontos em que o problema não foi resolvido ou resolvido apenas parcialmente...</p>
+    </section>
+  </main>
 
   <script>
-    function showActionPlan(nivel) {
-      const container = document.getElementById("action-plan-container");
+    function mostrarNiveis(trilha) {
+      document.getElementById('niveis').style.display = 'block';
+    }
 
-      let plano = "";
-
-      if (nivel === "basico") {
-        plano = `
-          <div class="action-plan">
-            <h2>Plano de Ação - Nível Básico</h2>
-
-            <div class="action-section">
-              <h3>Diagnóstico</h3>
-              <p>Descreva o ponto de partida do professor ou turma.</p>
-            </div>
-
-            <div class="action-section">
-              <h3>Meta</h3>
-              <p>Aumentar o engajamento dos alunos nas atividades orais em sala.</p>
-            </div>
-
-            <div class="action-section">
-              <h3>Estratégias</h3>
-              <ul>
-                <li>Aplicar atividades em pares e grupos.</li>
-                <li>Utilizar jogos para prática oral.</li>
-              </ul>
-            </div>
-
-            <div class="action-section">
-              <h3>Indicadores de Sucesso</h3>
-              <p>80% dos alunos participam de pelo menos uma atividade oral por aula.</p>
-            </div>
-
-            <div class="action-section">
-              <h3>Evidências</h3>
-              <p>Relatos do professor, vídeos curtos, fotos ou prints das atividades realizadas.</p>
-            </div>
-          </div>
-        `;
-      } else {
-        plano = `<p>Plano de Ação do nível <strong>${nivel}</strong> ainda não foi definido.</p>`;
-      }
-
-      container.innerHTML = plano;
+    function mostrarPlanoAcao(nivel) {
+      document.getElementById('planoAcao').style.display = 'block';
     }
   </script>
 </body>
