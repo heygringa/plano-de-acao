@@ -1,111 +1,154 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f9;
-  color: #333;
+/* Reset básico */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
-  max-width: 960px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #ffffff;
+body {
+  background-color: #f5f7fb;
+  color: #333;
+  padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  float: left;
+  width: 220px;
+  padding-right: 30px;
+  border-right: 2px solid #e0e0e0;
+}
+
+.sidebar h1 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Conteúdo principal */
+.main-content {
+  margin-left: 260px;
+  padding: 10px;
+}
+
+/* Trilhas e nível */
+.trilhas {
+  margin-bottom: 20px;
+}
+
+.trilhas h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.niveis button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.niveis button.active,
+.niveis button:hover {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Seções */
+.section {
+  background-color: white;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-h1, h2, h3 {
+.section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
   color: #2c3e50;
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  font-size: 1.4rem;
-  margin-top: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-h3 {
-  font-size: 1.1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.3rem;
-}
-
-p.subtitle {
-  font-size: 0.95rem;
+.section p {
+  font-size: 14px;
+  margin-bottom: 20px;
   color: #555;
-  margin-bottom: 1rem;
 }
 
-.trilha-card {
-  background-color: #ffffff;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
-  padding: 1rem;
-  margin: 1rem 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.section label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 15px;
 }
 
-.trilha-card:hover {
-  background-color: #f0f8ff;
-  border-color: #007acc;
-}
-
-.section {
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #fafafa;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-
-.question {
-  margin: 0.5rem 0;
+/* Autoavaliação */
+.scale {
   display: flex;
-  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
-.question input[type="checkbox"] {
-  margin-right: 0.6rem;
-  transform: scale(1.2);
+.scale span {
+  background-color: #dcdcdc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-textarea, input[type="text"], input[type="date"], select {
+/* Diagnóstico, Plano de Ação e Avaliação */
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.checkbox-group {
+  margin-bottom: 20px;
+}
+
+.checkbox-group label {
+  margin-left: 6px;
+}
+
+/* Inputs do plano de ação */
+input[type="text"],
+textarea,
+select {
   width: 100%;
-  padding: 0.6rem;
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  resize: vertical;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-.button {
-  background-color: #007acc;
-  color: #ffffff;
-  padding: 0.6rem 1.2rem;
+/* Botões e footer */
+button.primary {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
 }
 
-.button:hover {
-  background-color: #005fa3;
+button.primary:hover {
+  background-color: #0056b3;
 }
 
-footer.note {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  font-size: 0.9rem;
-  color: #555;
+.footer-note {
+  font-size: 13px;
+  color: #666;
+  margin-top: 20px;
   border-top: 1px solid #ccc;
+  padding-top: 10px;
 }
