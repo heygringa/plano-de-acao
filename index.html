@@ -1,49 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hey Gringa - Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hey Gringa - Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Hey Gringa</h2>
-        <ul>
-            <li class="active">Minhas Trilhas</li>
-            <li>Relatórios</li>
-            <li>Plano de Ação</li>
-            <li>Administração</li>
-            <script src="script.js"></script>
-        </ul>
+  <div class="sidebar">
+    <h2>Hey Gringa</h2>
+    <ul>
+      <li class="active">Minhas Trilhas</li>
+      <li>Relatórios</li>
+      <li>Plano de Ação</li>
+      <li>Administração</li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div class="topbar">
+      <h1>Minhas Trilhas</h1>
     </div>
-    <div class="main-content">
-        <div class="topbar">
-            <h1>Minhas Trilhas</h1>
-        </div>
-        <div class="course-menu">
-            <button class="tab">Básico</button>
-            <button class="tab">Intermediário</button>
-            <button class="tab">Avançado</button>
-        </div>
-        <div class="content">
-            <div class="course-card">
-                <h3>Didática Moderna</h3>
-                <p>Status: Não iniciado</p>
-                <button>Acessar</button>
-            </div>
-            <div class="course-card">
-                <h3>Gestão de Sala de Aula</h3>
-                <p>Status: Em progresso</p>
-                <button>Acessar</button>
-            </div>
-            <div class="course-card">
-                <h3>Planejamento Estratégico</h3>
-                <p>Status: Concluído</p>
-                <button>Acessar</button>
-            </div>
-        </div>
+
+    <div class="course-menu">
+      <button class="tab" onclick="showActionPlan('basico')">Básico</button>
+      <button class="tab" onclick="showActionPlan('intermediario')">Intermediário</button>
+      <button class="tab" onclick="showActionPlan('avancado')">Avançado</button>
     </div>
+
+    <div class="content" id="action-plan-container">
+      <p>Selecione um nível para visualizar o Plano de Ação.</p>
+    </div>
+  </div>
+
+  <script>
+    function showActionPlan(nivel) {
+      const container = document.getElementById("action-plan-container");
+
+      let plano = "";
+
+      if (nivel === "basico") {
+        plano = `
+          <div class="action-plan">
+            <h2>Plano de Ação - Nível Básico</h2>
+
+            <div class="action-section">
+              <h3>Diagnóstico</h3>
+              <p>Descreva o ponto de partida do professor ou turma.</p>
+            </div>
+
+            <div class="action-section">
+              <h3>Meta</h3>
+              <p>Aumentar o engajamento dos alunos nas atividades orais em sala.</p>
+            </div>
+
+            <div class="action-section">
+              <h3>Estratégias</h3>
+              <ul>
+                <li>Aplicar atividades em pares e grupos.</li>
+                <li>Utilizar jogos para prática oral.</li>
+              </ul>
+            </div>
+
+            <div class="action-section">
+              <h3>Indicadores de Sucesso</h3>
+              <p>80% dos alunos participam de pelo menos uma atividade oral por aula.</p>
+            </div>
+
+            <div class="action-section">
+              <h3>Evidências</h3>
+              <p>Relatos do professor, vídeos curtos, fotos ou prints das atividades realizadas.</p>
+            </div>
+          </div>
+        `;
+      } else {
+        plano = `<p>Plano de Ação do nível <strong>${nivel}</strong> ainda não foi definido.</p>`;
+      }
+
+      container.innerHTML = plano;
+    }
+  </script>
 </body>
 </html>
-
