@@ -26,7 +26,7 @@
     <section id="niveis" style="display: none">
       <h2>Escolha o Nível</h2>
       <div class="botoes-niveis">
-        <button onclick="mostrarPlanoAcao('basico')">Básico</button>
+        <button onclick="mostrarDiagnostico('basico')">Básico</button>
         <button disabled>Intermediário</button>
         <button disabled>Avançado</button>
       </div>
@@ -35,45 +35,110 @@
     <section id="planoAcao" style="display: none">
       <h2>Diagnóstico</h2>
       <h3>Reflexão sobre a prática</h3>
-      <p>Leia atentamente cada afirmativa e avalie sua prática na sala de aula. Reflita sobre os pontos abaixo e faça sua auto-avaliação. Para cada item, assinale uma nota de 1 a 5, sendo:<br>1️⃣ - Nunca | 2️⃣ - Raramente | 3️⃣ - Às vezes | 4️⃣ - Frequentemente | 5️⃣ - Sempre</p>
+      <p>Avalie cada item de 1 a 5:<br>1️⃣ - Nunca | 2️⃣ - Raramente | 3️⃣ - Às vezes | 4️⃣ - Frequentemente | 5️⃣ - Sempre</p>
 
-      <div class="bloco-diagnostico">
-        <h4>1. Estabelecendo regras e rotinas</h4>
-        <label><input type="checkbox" /> Eu comunico expectativas de forma clara, consistente e adaptada às necessidades da minha turma...</label>
-        <label><input type="checkbox" /> Eu utilizo uma linguagem positiva e objetiva para estabelecer regras e rotinas...</label>
-        <label><input type="checkbox" /> Eu aplico estratégias para manter a atenção dos alunos...</label>
-        <label><input type="checkbox" /> Eu monitoro e dou feedback regular sobre o comportamento...</label>
-        <label><input type="checkbox" /> Eu reviso e ajusto regras e rotinas periodicamente...</label>
+      <div id="diagnosticoContainer"></div>
+
+      <button onclick="gerarPlanoAcao()">Gerar Plano de Ação</button>
+
+      <div id="resultadoPlano" style="display: none">
+        <h2>Plano de Ação</h2>
+        <table>
+          <thead>
+            <tr><th>Ponto</th><th>Problema</th><th>Estratégia</th><th>Prazo</th></tr>
+          </thead>
+          <tbody id="tabelaPlano"></tbody>
+        </table>
       </div>
+    </section>
+  </main>
 
-      <div class="bloco-diagnostico">
-        <h4>2. Engajamento</h4>
-        <label><input type="checkbox" /> Implemento estratégias interativas, como jogos e dinâmicas...</label>
-        <label><input type="checkbox" /> Crio um ambiente acolhedor que incentiva a participação ativa...</label>
-        <label><input type="checkbox" /> Adapto minhas aulas para conectar o aprendizado de inglês aos interesses dos alunos...</label>
-        <label><input type="checkbox" /> Normalizo os erros como parte do processo de aprendizado...</label>
-        <label><input type="checkbox" /> Estimulo a interação entre os alunos por meio de atividades colaborativas...</label>
-      </div>
+  <script>
+    const perguntas = [
+      {
+        bloco: "1. Estabelecendo regras e rotinas",
+        itens: [
+          "Eu comunico expectativas de forma clara...",
+          "Eu utilizo linguagem positiva para regras...",
+          "Eu aplico estratégias para manter a atenção...",
+          "Eu monitoro e dou feedback...",
+          "Eu reviso e ajusto regras periodicamente..."
+        ]
+      },
+      {
+        bloco: "2. Engajamento",
+        itens: [
+          "Implemento estratégias interativas...",
+          "Crio ambiente acolhedor...",
+          "Adapto aulas aos interesses dos alunos...",
+          "Normalizo os erros como parte do processo...",
+          "Estimulo interação entre alunos..."
+        ]
+      },
+      {
+        bloco: "3. Resolução de conflitos iniciais",
+        itens: [
+          "Identifico fatores que geram conflitos...",
+          "Utilizo comunicação assertiva...",
+          "Uso sinais não verbais...",
+          "Adapto planejamento às necessidades...",
+          "Reflito sobre o impacto da gestão..."
+        ]
+      }
+    ];
 
-      <div class="bloco-diagnostico">
-        <h4>3. Resolução de conflitos iniciais</h4>
-        <label><input type="checkbox" /> Eu identifico e compreendo os principais fatores que podem gerar conflitos...</label>
-        <label><input type="checkbox" /> Eu utilizo a comunicação assertiva e a mediação de conflitos...</label>
-        <label><input type="checkbox" /> Eu aplico técnicas como o uso de sinais não verbais...</label>
-        <label><input type="checkbox" /> Eu adapto meu planejamento de aula para atender às necessidades individuais...</label>
-        <label><input type="checkbox" /> Eu reflito sobre o impacto da gestão de comportamentos na minha motivação...</label>
-      </div>
+    function mostrarNiveis() {
+      document.getElementById('niveis').style.display = 'block';
+    }
 
-      <p>Agora que concluímos a reflexão, é hora de avançar para o próximo passo: transformar essa análise em ação. Verifique no PLANO DE AÇÃO os itens que você avaliou entre 1 e 3...</p>
+    function mostrarDiagnostico(nivel) {
+      document.getElementById('trilhas').style.display = 'none';
+      document.getElementById('niveis').style.display = 'none';
+      document.getElementById('planoAcao').style.display = 'block';
 
-      <h2>Plano de Ação</h2>
-      <table>
-        <thead>
-          <tr><th>Ponto</th><th>Problema</th><th>Estratégia para Melhoria</th><th>Prazo</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" placeholder="Ex: Clareza nas regras" /></td>
+      const container = document.getElementById('diagnosticoContainer');
+      container.innerHTML = '';
+
+      perguntas.forEach((bloco, i) => {
+        const blocoDiv = document.createElement('div');
+        blocoDiv.classList.add('bloco-diagnostico');
+
+        const h4 = document.createElement('h4');
+        h4.textContent = bloco.bloco;
+        blocoDiv.appendChild(h4);
+
+        bloco.itens.forEach((texto, j) => {
+          const label = document.createElement('label');
+          label.innerHTML = `
+            ${texto}
+            <select name="resposta" data-ponto="${texto}">
+              <option value="">Escolha</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          `;
+          blocoDiv.appendChild(label);
+        });
+
+        container.appendChild(blocoDiv);
+      });
+    }
+
+    function gerarPlanoAcao() {
+      const respostas = document.querySelectorAll('select[name="resposta"]');
+      const tabela = document.getElementById('tabelaPlano');
+      tabela.innerHTML = '';
+
+      respostas.forEach(select => {
+        const valor = parseInt(select.value);
+        const texto = select.dataset.ponto;
+        if (valor && valor <= 3) {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${texto}</td>
             <td>
               <select>
                 <option>Os alunos não compreendem claramente as expectativas.</option>
@@ -85,41 +150,12 @@
             </td>
             <td><textarea placeholder="Sugestões aparecerão aqui ou insira sua estratégia..."></textarea></td>
             <td><input type="date" /></td>
-          </tr>
-        </tbody>
-      </table>
+          `;
+          tabela.appendChild(tr);
+        }
+      });
 
-      <h2>Checklist de Avaliação</h2>
-      <p>Responda SIM (S), PARCIALMENTE (P) ou NÃO (N):</p>
-      <table>
-        <thead>
-          <tr><th>Solução</th><th>Resultado</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Estabeleci regras claras e consistentes.</td>
-            <td>
-              <select>
-                <option>S</option>
-                <option>P</option>
-                <option>N</option>
-              </select>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>Agora que chegamos ao final da avaliação, verifique os pontos em que o problema não foi resolvido ou resolvido apenas parcialmente...</p>
-    </section>
-  </main>
-
-  <script>
-    function mostrarNiveis(trilha) {
-      document.getElementById('niveis').style.display = 'block';
-    }
-
-    function mostrarPlanoAcao(nivel) {
-      document.getElementById('planoAcao').style.display = 'block';
+      document.getElementById('resultadoPlano').style.display = 'block';
     }
   </script>
 </body>
