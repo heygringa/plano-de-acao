@@ -1,90 +1,60 @@
-/* Reset básico */
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  
-  body {
-    display: flex;
+    background-color: #f9f9f9;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: #fff;
     height: 100vh;
-    background-color: #f4f6f8;
-    color: #333;
-  }
-  
-  /* Sidebar lateral */
-  .sidebar {
-    width: 220px;
-    background-color: #1f2937;
-    color: white;
     padding: 20px;
-  }
-  
-  .sidebar h2 {
-    margin-bottom: 30px;
-    font-size: 24px;
-  }
-  
-  .sidebar ul {
+    position: fixed;
+}
+
+.sidebar ul {
     list-style: none;
-  }
-  
-  .sidebar ul li {
-    margin: 15px 0;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
     cursor: pointer;
+}
+
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.trilhas {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.trilha-btn {
     padding: 10px;
-    border-radius: 6px;
-    transition: background 0.2s;
-  }
-  
-  .sidebar ul li:hover,
-  .sidebar ul li.active {
-    background-color: #374151;
-  }
-  
-  /* Conteúdo principal */
-  .main-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #ffffff;
-  }
-  
-  /* Topbar */
-  .topbar {
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-  }
-  
-  .topbar h1 {
-    font-size: 24px;
-  }
-  
-  /* Menu de cursos */
-  .course-menu {
-    margin-bottom: 20px;
-  }
-  
-  .course-menu .tab {
-    background-color: #e5e7eb;
+    background-color: #ddd;
     border: none;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .course-menu .tab:hover {
-    background-color: #d1d5db;
-  }
-  
-  /* Conteúdo */
-  .content {
+}
+
+.trilha-btn.active {
+    background-color: #4a4a8a;
+    color: white;
+}
+
+.cursos {
+    display: flex;
+    gap: 10px;
+}
+
+.curso-card {
+    background-color: #f2f2f2;
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9fafb;
-  }
-  
+    flex: 1;
+}
