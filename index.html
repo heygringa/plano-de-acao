@@ -1,34 +1,169 @@
-
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hey Gringa - Dashboard</title>
-    <link rel="stylesheet" href="/plano-de-acao/style.css" />
+      padding: 20px;
+    }
+    .trilhas {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .trilha-btn {
+      padding: 10px;
+      background-color: #ddd;
+      border: none;
+      cursor: pointer;
+    }
+    .trilha-btn.active {
+      background-color: #4a4a8a;
+      color: white;
+    }
+    .cursos {
+      display: flex;
+      gap: 10px;
+    }
+    .curso-card {
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 8px;
+      flex: 1;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Hey Gringa</h2>
-        <ul>
-            <li class="active">Minhas Trilhas</li>
-            <li>Relatórios</li>
-            <li>Plano de Ação</li>
-            <li>Administração</li>
-        </ul>
-    </div>
-    <div class="main-content">
-        <div class="topbar">
-            <h1>Minhas Trilhas</h1>
-        </div>
-        <div class="course-menu">
-            <button class="tab">Básico</button>
-            <button class="tab">Intermediário</button>
-            <button class="tab">Avançado</button>
-        </div>
-        <div class="content">
-            <p>Selecione um curso para visualizar o conteúdo.</p>
-        </div>
-    </div>
+  <div class="sidebar">
+    <h2>Hey Gringa</h2>
+    <ul>
+      <li class="active">Minhas Trilhas</li>
+      <li>Relatórios</li>
+      <li>Plano de Ação</li>
+      <li>Administração</li>
+    </ul>
+  </div>
+  <div class="main-content">
+    <h1>Minhas Trilhas</h1>
+    <div class="trilhas" id="trilhas"></div>
+    <div class="cursos" id="cursos"></div>
+  </div>
+
+  <script>
+    const trilhas = [
+      { nome: "Didática Moderna", cursos: ["Básico", "Intermediário", "Avançado"] },
+      { nome: "Planejamento de Aula", cursos: ["Básico", "Intermediário", "Avançado"] },
+      { nome: "Tecnologias Educacionais", cursos: ["Básico", "Intermediário", "Avançado"] },
+      { nome: "Inclusão e Diversidade", cursos: ["Básico", "Intermediário", "Avançado"] }
+    ];
+
+    const trilhasContainer = document.getElementById('trilhas');
+    const cursosContainer = document.getElementById('cursos');
+
+    function renderTrilhas() {
+      trilhas.forEach((trilha, index) => {
+        const btn = document.createElement('button');
+        btn.textContent = trilha.nome;
+        btn.className = 'trilha-btn';
+        btn.onclick = () => renderCursos(index, btn);
+        trilhasContainer.appendChild(btn);
+      });
+    }
+
+    function renderCursos(index, btn) {
+      document.querySelectorAll('.trilha-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      cursosContainer.innerHTML = '';
+
+      trilhas[index].cursos.forEach(curso => {
+        const card = document.createElement('div');
+        card.className = 'curso-card';
+        card.textContent = curso;
+        cursosContainer.appendChild(card);
+      });
+    }
+
+    renderTrilhas();
+  </script>
 </body>
 </html>
