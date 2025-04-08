@@ -1,93 +1,34 @@
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Plano de Ação - Hey Gringa</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hey Gringa - Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Plano de Ação - Hey Gringa</h1>
-
-    <!-- Diagnóstico -->
-    <section id="diagnostico">
-        <h2>Diagnóstico</h2>
-        <form id="diagnostico-form">
-            <p>1. Meus alunos demonstram interesse nas aulas.</p>
-            <select name="q1">
-                <option value="1">1️⃣ Nunca</option>
-                <option value="2">2️⃣ Raramente</option>
-                <option value="3">3️⃣ Às vezes</option>
-                <option value="4">4️⃣ Frequentemente</option>
-                <option value="5">5️⃣ Sempre</option>
-            </select>
-            <p>2. Utilizo diferentes estratégias de ensino.</p>
-            <select name="q2">
-                <option value="1">1️⃣ Nunca</option>
-                <option value="2">2️⃣ Raramente</option>
-                <option value="3">3️⃣ Às vezes</option>
-                <option value="4">4️⃣ Frequentemente</option>
-                <option value="5">5️⃣ Sempre</option>
-            </select>
-            <p>3. Os alunos participam ativamente das aulas.</p>
-            <select name="q3">
-                <option value="1">1️⃣ Nunca</option>
-                <option value="2">2️⃣ Raramente</option>
-                <option value="3">3️⃣ Às vezes</option>
-                <option value="4">4️⃣ Frequentemente</option>
-                <option value="5">5️⃣ Sempre</option>
-            </select>
-            <p>4. Dou feedbacks frequentes aos meus alunos.</p>
-            <select name="q4">
-                <option value="1">1️⃣ Nunca</option>
-                <option value="2">2️⃣ Raramente</option>
-                <option value="3">3️⃣ Às vezes</option>
-                <option value="4">4️⃣ Frequentemente</option>
-                <option value="5">5️⃣ Sempre</option>
-            </select>
-            <p>5. Faço acompanhamento individualizado do aprendizado.</p>
-            <select name="q5">
-                <option value="1">1️⃣ Nunca</option>
-                <option value="2">2️⃣ Raramente</option>
-                <option value="3">3️⃣ Às vezes</option>
-                <option value="4">4️⃣ Frequentemente</option>
-                <option value="5">5️⃣ Sempre</option>
-            </select>
-        </form>
-    </section>
-
-    <!-- Plano de Ação -->
-    <section id="plano-acao">
-        <h2>Plano de Ação</h2>
-        <form id="plano-acao-form">
-            <label>Problema identificado</label>
-            <input type="text" name="problema" />
-
-            <label>Estratégia para melhoria</label>
-            <textarea name="estrategia"></textarea>
-
-            <label>Prazo para implementação</label>
-            <input type="date" name="prazo" />
-        </form>
-    </section>
-
-    <!-- Avaliação -->
-    <section id="avaliacao">
-        <h2>Avaliação</h2>
-        <form id="avaliacao-form">
-            <label>O problema foi resolvido?</label>
-            <select name="resolvido">
-                <option>Sim</option>
-                <option>Parcialmente</option>
-                <option>Não</option>
-            </select>
-
-            <label>Como você avalia sua evolução?</label>
-            <textarea name="evolucao"></textarea>
-
-            <label>Próximas ações</label>
-            <textarea name="proximas"></textarea>
-        </form>
-    </section>
+    <div class="sidebar">
+        <h2>Hey Gringa</h2>
+        <ul>
+            <li class="active">Minhas Trilhas</li>
+            <li>Relatórios</li>
+            <li>Plano de Ação</li>
+            <li>Administração</li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Minhas Trilhas</h1>
+        </div>
+        <div class="course-menu">
+            <button class="tab">Básico</button>
+            <button class="tab">Intermediário</button>
+            <button class="tab">Avançado</button>
+        </div>
+        <div class="content">
+            <p>Selecione um curso para visualizar o conteúdo.</p>
+        </div>
+    </div>
 </body>
 </html>
